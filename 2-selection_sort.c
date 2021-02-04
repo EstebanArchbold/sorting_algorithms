@@ -1,30 +1,29 @@
 #include "sort.h"
 
 /**
- * selection_sort - is a sorting algorithm, specifically an
- * in-place comparison sort. It has O(n^^2) time complexity
+ * selection_sort - sorting algorithm: comparison sort, time complexity O(n^^2)
  * @array: the array
  * @size: size of array
  */
 
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, p_min;
-	int temp;
+	size_t n, m, min;
+	int tmp;
 
-	for (i = 0; i < (size - 1); i++)
+	for (n = 0; m < (size - 1); n++)
 	{
-		p_min = i;
-		for (j = i + 1; j < size; j++)
+		min = n;
+		for (m = i + 1; m < size; m++)
 		{
-			if (array[j] < array[p_min])
-				p_min = j;
+			if (array[m] < array[min])
+				min = m;
 		}
-		if (p_min != i)
+		if (min != n)
 		{
-			temp = array[p_min];
-			array[p_min] = array[i];
-			array[i] = temp;
+			tmp = array[min];
+			array[min] = array[n];
+			array[n] = tmp;
 			print_array(array, size);
 		}
 	}
