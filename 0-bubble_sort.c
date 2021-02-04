@@ -10,29 +10,29 @@
  **/
 void bubble_sort(int *array, size_t size)
 {
-	size_t total_t, position_v;
-	int container = 0;
+	size_t total, position;
+	int cont = 0;
 
 	if (!array || !size || size < 2)
 	{
 		return;
 	}
 
-	total_t = 0;
-	while (total_t < size)
+	total = 0;
+	while (total < size)
 	{
-		position_v = 0;
-		while (position_v < (size - 1))
+		position = 0;
+		while (position < (size - 1))
 		{
-			if (array[position_v] > array[position_v + 1])
+			if (array[position] > array[position + 1])
 			{
-				container = array[position_v];
-				array[position_v] = array[position_v + 1];
-				array[position_v + 1] = container;
+				cont = array[position];
+				array[position] = array[position + 1];
+				array[position + 1] = cont;
 				print_array(array, size);
 			}
-			position_v++;
+			position++;
 		}
-		total_t++;
+		total++;
 	}
 }
