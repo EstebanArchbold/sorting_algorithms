@@ -8,44 +8,44 @@
 */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *aux2 = NULL, *aux_prev = NULL, *aux_next = NULL, *tmp = NULL;
-	int wall = 0;
+	listint_t *aux = NULL, *prev1 = NULL, *next1 = NULL, *non = NULL;
+	int bar = 0;
 
 	if (!list || !*list)
 		return;
 
-	tmp = *list;
+	non = *list;
 
-	while (tmp)
+	while (non)
 	{
-		if (tmp->prev != NULL)
+		if (non->prev1 != NULL)
 		{
-			aux2 = tmp;
-			wall = 0;
-			while (aux2 && aux2->prev->n > aux2->n)
+			aux = non;
+			bar = 0;
+			while (aux && aux->prev->n > aux->n)
 			{
-				aux_prev = aux2->prev;
-				aux_next = aux2->next;
+				prev1 = aux->prev;
+				next1 = aux->next;
 
-				if (aux_prev->prev)
-					aux_prev->prev->next = aux2;
+				if (prev1->prev)
+					prev1->prev->next = aux;
 				else
 				{
-					*list = aux2;
-					wall = 1;
+					*list = aux;
+					bar = 1;
 				}
-				if (aux_next)
-					aux_next->prev = aux_prev;
+				if (next1)
+					next1->prev = prev1;
 
-				aux2->prev = aux_prev->prev;
-				aux2->next = aux_prev;
-				aux_prev->prev = aux2;
-				aux_prev->next = aux_next;
+				aux->prev = prev1->prev;
+				aux->next = prev1;
+				prev1->prev = aux;
+				prev1->next = next1;
 				print_list(*list);
-				if (wall)
+				if (bar)
 					break;
 			}
 		}
-		tmp = tmp->next;
+		non = non->next;
 	}
 }
