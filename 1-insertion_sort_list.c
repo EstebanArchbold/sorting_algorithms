@@ -18,7 +18,7 @@ void insertion_sort_list(listint_t **list)
 
 	while (non)
 	{
-		if (non->prev1 != NULL)
+		if (non->prev != NULL)
 		{
 			aux = non;
 			bar = 0;
